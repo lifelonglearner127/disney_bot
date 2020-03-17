@@ -14,7 +14,7 @@ pyflakes==2.1.1
 python-dateutil==2.8.1
 pytz==2018.5
 PyVirtualDisplay==0.2.1
-requests==2.18.4
+requests==2.20.0
 selenium==3.8.1
 six==1.14.0
 urllib3==1.22
