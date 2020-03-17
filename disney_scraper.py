@@ -247,6 +247,11 @@ class DisneyScraper:
             len(self.driver.find_elements_by_xpath(SLIDER_ITEM_XPATH))
 
         for i in range(2, slider_counts):
+            # scroll to the current slider in order to
+            # load the images from below sliders
+            self.make_element_visible(
+                self.driver.find_elements_by_xpath(SLIDER_ITEM_XPATH)[i]
+            )
 
             # get section name
             name =\
@@ -286,6 +291,7 @@ class DisneyScraper:
                     self.make_element_click(item)
                     item_url = self.driver.current_url
                     self.driver.back()
+                    self.wait_for_element(SLIDER_ITEM_XPATH)
 
                     # save the item data
                     items.append({
@@ -314,12 +320,6 @@ class DisneyScraper:
                 "name": name,
                 "items": items
             })
-
-            # scroll to the current slider in order to
-            # load the images from below sliders
-            self.make_element_visible(
-                self.driver.find_elements_by_xpath(SLIDER_ITEM_XPATH)[i]
-            )
 
         # save the result to the file
         with open("output.json", "w") as f:
