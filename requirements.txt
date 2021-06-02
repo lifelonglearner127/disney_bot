@@ -17,5 +17,5 @@ PyVirtualDisplay==0.2.1
 requests==2.18.4
 selenium==3.8.1
 six==1.14.0
-urllib3==1.22
+urllib3==1.26.5
 xlrd==1.1.0
